@@ -6,10 +6,10 @@ require_once __DIR__."/Gatto.php";
 
 class Cuccia extends Prodotto {
 
-    public function __construct(string $_name, string $_description, 
+    public function __construct(string $_imgUrl, string $_name, string $_description, 
     float $_cost, float $_weight, string $_materiale, string $_colore, 
     string $_infoLavaggio, $_categoria) {
-        parent::__construct($_name, $_description, $_cost, $_weight, $_categoria);
+        parent::__construct($_imgUrl, $_name, $_description, $_cost, $_weight, $_categoria);
         $this->setMateriale($_materiale);
         $this->setColore($_colore);
         $this->setInfoLavaggio($_infoLavaggio);

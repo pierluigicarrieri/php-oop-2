@@ -2,12 +2,28 @@
 
     class Prodotto {
 
-        public function __construct(string $_name, string $_description, float $_cost, float $_weight, $_categoria) {
+        public function __construct(string $_imgUrl, string $_name, string $_description, float $_cost, float $_weight, $_categoria) {
+            $this->setImgUrl($_imgUrl);
             $this->setName($_name);
             $this->setDescription($_description);
             $this->setCost($_cost);
             $this->setWeight($_weight);
             $this->setNomeCategoria($_categoria);
+        }
+
+        /**
+         * Get the value of imgUrl
+         */
+        public function getImgUrl(): string {
+            return $this->imgUrl;
+        }
+
+        /**
+         * Set the value of imgUrl
+         */
+        public function setImgUrl(string $imgUrl): self {
+            $this->imgUrl = $imgUrl;
+            return $this;
         }
 
         /**
@@ -85,6 +101,7 @@
             return $this;
         }
 
+        private string $imgUrl = "";
         private string $name = "";
         private string $description = "";
         private float $cost = 0;

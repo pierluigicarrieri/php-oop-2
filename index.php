@@ -5,11 +5,34 @@ require_once __DIR__."/Gioco.php";
 require_once __DIR__."/Cibo.php";
 
 $data = [
-    $cuccia1 = new Cuccia("Billy", "Cuccia per cani molto carina", 10.00, 5, "cotone", "bianco", "30", $categoria1 = new Cane("cane", "bubu")),
-    $cuccia2 = new Cuccia("Billy", "Cuccia per cani molto carina", 10.00, 5, "cotone", "bianco", "30", $categoria1 = new Cane("cane", "bubu"))
-];
 
-var_dump($cuccia1);
+    $cucciaCane = new Cuccia("./imgs/cuccia_cane.jpg", 
+    "Kerbl Dog House", "Tetto bituminoso resistente alle intemperie.
+    Parete esterna è vetrata con colore legno protettivo.", 
+    116.44, 15.5, "Legno", "Marrone", "Lavabile con acqua", $categoria = new Cane()),
+
+    $cucciaGatto = new Cuccia("./imgs/cuccia_gatto.jpg", 
+    "Yaheetech Tiragraffi Albero per Gatti con Posatoio", "Questo tiragraffi a più livelli 
+    è completamente rivestito con un tessuto morbido e delicato sulla pelle, offrendo ai gatti il massimo comfort", 
+    29.99, 6.5, "Tessuto felpato", "Grigio", "Lavabile con acqua", $categoria = new Gatto()),
+
+    $giocoCane = new Gioco("./imgs/gioco_cane.webp", 
+    "Trixie 32652 Denta Fun, corda da gioco in puro cotone", "Con questo fra i denti Fido sarà felice!", 
+    3.99, 0.12, "Corda", "Grigio", false, $categoria = new Cane()),
+
+    $giocoGatto = new Gioco("./imgs/gioco_gatto.jpg", 
+    "Topino Rimbalzino Deluxe 3300", "Topo meccanico per fare giocare il gatto", 
+    6.99, 0.05, "Cotone", "Bianco", false, $categoria = new Gatto()),
+
+    $ciboCane = new Cibo("./imgs/cibo_cane.jpg", 
+    "Amanova Doggie Treats", "Amanova Cibo Secco per Cani Adulti di Taglia Media o Grande per palati esigenti Gusto Maiale", 
+    12.80, 0,2, "Bianco", "InfoNutrizionaliVarie", $categoria = new Cane()),
+
+    $ciboGatto = new Cibo("./imgs/cibo_gatto.webp", 
+    "Sheba Premium", "Sheba selezione in salsa con pollo e tacchino", 
+    6.70, 0,15, "Nero", "InfoNutrizionaliVarie", $categoria = new Gatto()),
+
+];
 
 ?>
 
@@ -19,6 +42,7 @@ var_dump($cuccia1);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>php-oop-2</title>
 </head>
@@ -36,24 +60,34 @@ var_dump($cuccia1);
 
         <div class="container">
 
-            <div class="row row-cols-3">
+            <div class="row row-cols-3 g-4">
 
                     <?php foreach ($data as $item) { 
                     ?>
 
                     <div class="col">
 
-                        <div class="card">
+                        <div class="card h-100">
 
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="<?php echo $item->getImgUrl() ?>" class="card-img-top" alt="<?php echo $item->getImgUrl() ?>">
 
                         <div class="card-body">
 
-                            <h5 class="card-title"> <?php echo $item->getName() ?> </h5>
+                            <h5 class="card-title"><?php echo $item->getName() ?></h5>
 
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <img id="icona" src="<?php echo $item->getNomeCategoria()->getIconUrl() ?>" alt="<?php echo $item->getNomeCategoria()->getIconUrl() ?>">
+
+                            <p class="card-text"><?php echo $item->getDescription() ?></p>
+
+                            <p class="card-text"><?php echo $item->getCost() ?></p>
+
+                            <p class="card-text"><?php echo $item->getWeight() ?></p>
+
+                            <p class="card-text"><?php echo $item->getMateriale() ?></p>
+
+                            <p class="card-text"><?php echo $item->getColore() ?></p>
                             
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-primary">Add to cart</a>
                         </div>
                         
                         </div>
