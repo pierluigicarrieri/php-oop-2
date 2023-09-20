@@ -2,11 +2,12 @@
 
     class Prodotto {
 
-        public function __construct(string $_name, string $_description, float $_cost, float $_weight) {
+        public function __construct(string $_name, string $_description, float $_cost, float $_weight, $_categoria) {
             $this->setName($_name);
             $this->setDescription($_description);
             $this->setCost($_cost);
             $this->setWeight($_weight);
+            $this->setNomeCategoria($_categoria);
         }
 
         /**
@@ -69,10 +70,26 @@
             return $this;
         }
 
+        /**
+         * Get the value of nomeCategoria
+         */
+        public function getNomeCategoria() {
+            return $this->nomeCategoria;
+        }
+
+        /**
+         * Set the value of nomeCategoria
+         */
+        public function setNomeCategoria($nomeCategoria): self {
+            $this->nomeCategoria = $nomeCategoria;
+            return $this;
+        }
+
         private string $name = "";
         private string $description = "";
         private float $cost = 0;
         private float $weight = 0;
+        private $nomeCategoria;
 
     }
 

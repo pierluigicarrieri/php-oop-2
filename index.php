@@ -1,3 +1,18 @@
+<?php
+
+require_once __DIR__."/Cuccia.php";
+require_once __DIR__."/Gioco.php";
+require_once __DIR__."/Cibo.php";
+
+$data = [
+    $cuccia1 = new Cuccia("Billy", "Cuccia per cani molto carina", 10.00, 5, "cotone", "bianco", "30", $categoria1 = new Cane("cane", "bubu"))
+];
+
+var_dump($cuccia1);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,9 +35,13 @@
 
         <div class="container">
 
-            <div class="row">
+            <div class="row row-cols-3">
 
-                <div class="col"></div>
+                <div class="col">
+
+                    
+
+                </div>
 
             </div>
 
