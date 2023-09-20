@@ -5,7 +5,8 @@ require_once __DIR__."/Gioco.php";
 require_once __DIR__."/Cibo.php";
 
 $data = [
-    $cuccia1 = new Cuccia("Billy", "Cuccia per cani molto carina", 10.00, 5, "cotone", "bianco", "30", $categoria1 = new Cane("cane", "bubu"))
+    $cuccia1 = new Cuccia("Billy", "Cuccia per cani molto carina", 10.00, 5, "cotone", "bianco", "30", $categoria1 = new Cane("cane", "bubu")),
+    $cuccia2 = new Cuccia("Billy", "Cuccia per cani molto carina", 10.00, 5, "cotone", "bianco", "30", $categoria1 = new Cane("cane", "bubu"))
 ];
 
 var_dump($cuccia1);
@@ -37,11 +38,32 @@ var_dump($cuccia1);
 
             <div class="row row-cols-3">
 
-                <div class="col">
+                    <?php foreach ($data as $item) { 
+                    ?>
 
-                    
+                    <div class="col">
 
-                </div>
+                        <div class="card">
+
+                        <img src="..." class="card-img-top" alt="...">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title"> <?php echo $item->getName() ?> </h5>
+
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        
+                        </div>
+
+                    </div>
+
+                    <?php
+                    }
+
+                    ?>
 
             </div>
 
