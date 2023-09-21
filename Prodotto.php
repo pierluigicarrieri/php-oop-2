@@ -1,14 +1,21 @@
 <?php
 
+    require_once __DIR__."/Dimensioni.php";
     class Prodotto {
 
-        public function __construct(string $_imgUrl, string $_name, string $_description, float $_cost, float $_weight, $_categoria) {
+        use Dimensioni;
+
+        public function __construct(string $_imgUrl, string $_name, string $_description, 
+        float $_cost, float $_weight, $_categoria, $_altezza, $_lunghezza, $_profondita) {
             $this->setImgUrl($_imgUrl);
             $this->setName($_name);
             $this->setDescription($_description);
             $this->setCost($_cost);
             $this->setWeight($_weight);
             $this->setNomeCategoria($_categoria);
+            $this->setAltezza($_altezza);
+            $this->setLunghezza($_lunghezza);
+            $this->setProfondita($_profondita);
         }
 
         /**
